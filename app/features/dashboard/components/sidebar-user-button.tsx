@@ -20,7 +20,7 @@ export function SidebarUserButton({ user, plan }: SidebarUserButtonProps) {
           user={user}
           plan={plan}
           variant="profile"
-          className="w-full [&_button]:h-12 [&_button]:w-full [&_button]:justify-start [&_button]:gap-2 [&_button]:px-2"
+          className="w-full [&_button]:h-12 [&_button]:w-full [&_button]:justify-start [&_button]:gap-2 [&_button]:px-2 group-data-[collapsible=icon]:[&_button]:size-8 group-data-[collapsible=icon]:[&_button]:p-0 group-data-[collapsible=icon]:[&_button]:justify-center"
         />
       </SidebarMenuItem>
     </SidebarMenu>

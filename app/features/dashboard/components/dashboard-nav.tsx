@@ -29,7 +29,10 @@ const NAV_ICONS = {
   settings: Settings,
 } as const;
 
-function isNavActive(pathname: string, href: DashboardRoute) {
+function isNavActive(pathname: string | null, href: DashboardRoute) {
+  if (!pathname) {
+    return false;
+  }
   if (href === "/dashboard") {
     return pathname === href;
   }

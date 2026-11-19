@@ -74,3 +74,34 @@ model Verification {
   @@index([identifier])
   @@map("verification")
 }
+
+model GithubInstallation {
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  installationId Int
+  accountLogin   String?
+  accountType    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("github_installation")
+}
+
+model PullRequest {
+  id             String    @id @default(cuid())
+  installationId Int
+  repoFullName   String
+  prNumber       Int
+  title          String
+  authorLogin    String?
+  headSha        String
+  baseBranch     String
+  status         String    @default("pending")
+  reviewComment  String?
+  reviewAt       DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@unique([repoFullName, prNumber])
+  @@map("pull_request")
+}

@@ -36,6 +36,7 @@ export async function requireAuth(redirectTo = SIGN_IN_PATH) {
 
   if (!session) {
     redirect(redirectTo);
+    throw new Error("Unauthorized");
   }
 
   return session;

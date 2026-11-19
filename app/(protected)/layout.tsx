@@ -1,5 +1,6 @@
 import { requireAuth } from "../features/auth/actions";
 
+export const instant = false;
 
 export default async function AuthLayout({
     children
@@ -9,5 +10,5 @@ export default async function AuthLayout({
     await requireAuth()
 
     
-  return <div className="min-h-svh">{children}</div>;
+  return <div className="min-h-svh" suppressHydrationWarning>{children}</div>;
 }
