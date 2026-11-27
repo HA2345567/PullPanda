@@ -13,6 +13,8 @@ import { requireAuth } from "@/features/auth/actions";
 import { RepoList } from "@/features/dashboard/components/repo-list";
 import { getInstallationStatus } from "@/features/github/server/intallation";
 
+export const instant = false;
+
 export const metadata: Metadata = {
   title: "Repositories · Dashboard",
 };

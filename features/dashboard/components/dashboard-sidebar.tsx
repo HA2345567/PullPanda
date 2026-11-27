@@ -43,7 +43,8 @@ export function DashboardSidebar({ user, plan = "Pro" }: DashboardSidebarProps) 
                     />
                   </span>
                   <span className="grid flex-1 text-left leading-tight group-data-[collapsible=icon]:hidden">
-                    <span className="truncate from-neutral-700">PullPanda</span>
+                    <span className="truncate font-semibold tracking-tight">PullPanda</span>
+                    <span className="truncate text-[11px] text-muted-foreground">AI Code Reviewer</span>
                   </span>
                 </Link>
               }
