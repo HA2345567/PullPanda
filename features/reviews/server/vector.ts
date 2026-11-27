@@ -12,34 +12,39 @@ export async function saveChunksToPinecone(
     chunks: CodeChunk[]
 ) {
     const index = getPineconeIndex();
+    const nonEmptyChunks = chunks.filter((chunk) => chunk.text.trim().length > 0);
+    if (nonEmptyChunks.length === 0) return;
 
-    const records = chunks.map((chunk) => ({
-        id: chunk.id,
-        text: chunk.text,
-        filePath: chunk.filePath,
+    const documents = nonEmptyChunks.map((chunk) => ({
+        _id: chunk.id,
+        title: chunk.filePath,
+        chunk_text: chunk.text,
     }));
 
     // namespace() scopes vectors so this PR never mixes with repo-wide sync data
-    await index.namespace(namespace).upsertRecords({ records });
+    await index.namespace(namespace).documents.upsert({ documents });
 }
 
 
 export async function searchPrContext(namespace: string, query: string) {
     const index = getPineconeIndex();
 
-    const response = await index.namespace(namespace).searchRecords({
-        query: { topK: CONTEXT_RESULTS, inputs: { text: query } },
+    const response = await index.namespace(namespace).documents.search({
+        scoreBy: [{ type: "embed", field: "chunk_text", query }],
+        topK: CONTEXT_RESULTS,
+        includeFields: ["title", "chunk_text"],
     });
 
     const snippets: string[] = [];
 
-    for (const hit of response.result.hits) {
-        const fields = hit.fields as { text?: string; filePath?: string };
-        if (!fields.text) {
+    for (const match of response.matches) {
+        const text = typeof match.chunk_text === "string" ? match.chunk_text : undefined;
+        const filePath = typeof match.title === "string" ? match.title : "unknown";
+        if (!text) {
             continue;
         }
 
-        snippets.push(`File: ${fields.filePath}\n${fields.text}`);
+        snippets.push(`File: ${filePath}\n${text}`);
     }
 
     return snippets;
