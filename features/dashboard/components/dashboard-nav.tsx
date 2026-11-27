@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import {
   GitBranch,
   GitFork,
+  GitPullRequest,
   LayoutDashboard,
   Settings,
 } from "lucide-react";
@@ -25,6 +26,7 @@ import {
 const NAV_ICONS = {
   "layout-dashboard": LayoutDashboard,
   "folder-git-2": GitBranch,
+  "git-pull-request": GitPullRequest,
   github: GitFork,
   settings: Settings,
 } as const;
