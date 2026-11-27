@@ -10,7 +10,8 @@ export type DashboardRepo={
     name: string,
     fullName:string,
     visibility: RepoVisibility;
-    description: string;
+    defaultBranch: string;
+    description?: string;
     updatedAt:string;
     language:string | null;
     stars: number;

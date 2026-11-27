@@ -1,4 +1,4 @@
-import { requireAuth } from "../features/auth/actions";
+import { requireAuth } from "../../features/auth/actions";
 
 export const instant = false;
 

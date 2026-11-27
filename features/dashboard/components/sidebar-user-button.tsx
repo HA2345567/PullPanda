@@ -5,7 +5,7 @@ import { SidebarMenu, SidebarMenuItem } from "@/components/ui/sidebar";
 import {
   UserMenu,
   type UserMenuUser,
-} from "@/app/features/auth/components/user-menu";
+} from "@/features/auth/components/user-menu";
 
 type SidebarUserButtonProps = {
   user: UserMenuUser;

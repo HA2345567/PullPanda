@@ -1,6 +1,6 @@
-import { getServerSession } from "@/app/features/auth/actions";
-import { DASHBOARD_ROUTES } from "@/app/features/dashboard/lib/routes";
-import { saveInstallation } from "@/app/features/github/server/intallation";
+import { getServerSession } from "@/features/auth/actions";
+import { DASHBOARD_ROUTES } from "@/features/dashboard/lib/routes";
+import { saveInstallation } from "@/features/github/server/intallation";
 import { redirect } from "next/navigation";
 
 

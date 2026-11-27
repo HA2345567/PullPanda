@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { DASHBOARD_ROUTES } from "@/app/features/dashboard/lib/routes";
-import { DashboardNav } from "@/app/features/dashboard/components/dashboard-nav";
-import { SidebarUserButton } from "@/app/features/dashboard/components/sidebar-user-button";
+import { DASHBOARD_ROUTES } from "@/features/dashboard/lib/routes";
+import { DashboardNav } from "@/features/dashboard/components/dashboard-nav";
+import { SidebarUserButton } from "@/features/dashboard/components/sidebar-user-button";
 import {
   Sidebar,
   SidebarContent,
@@ -15,7 +15,7 @@ import {
   SidebarRail,
   SidebarSeparator,
 } from "@/components/ui/sidebar";
-import type { UserMenuUser } from "@/app/features/auth/components/user-menu";
+import type { UserMenuUser } from "@/features/auth/components/user-menu";
 
 type DashboardSidebarProps = {
   user: UserMenuUser;

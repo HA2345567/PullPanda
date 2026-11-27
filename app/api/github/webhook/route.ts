@@ -1,4 +1,4 @@
-import { handleGithubWebhook } from "@/app/features/github/server/webhook-handler";
+import { handleGithubWebhook } from "@/features/github/server/webhook-handler";
 
 
 

@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/db";
-import { inngest } from "@/app/features/inngest/client";
+import { inngest } from "@/features/inngest/client";
 import { getGithubApp } from "../utils/github-app";
 import { getUserIdByInstallationId } from "./intallation";
 import { savePullRequest } from "../../reviews/server/save-pullrequest";

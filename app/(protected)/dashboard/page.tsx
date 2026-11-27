@@ -1,4 +1,4 @@
-import { DashboardHeader } from "@/app/features/dashboard/components/dashboard-header";
+import { DashboardHeader } from "@/features/dashboard/components/dashboard-header";
 import {
   Card,
   CardDescription,

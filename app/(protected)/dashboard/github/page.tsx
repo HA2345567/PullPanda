@@ -1,8 +1,8 @@
 
-import { requireAuth } from '@/app/features/auth/actions';
-import { DashboardHeader } from '@/app/features/dashboard/components/dashboard-header';
-import { GithubConnectCard } from '@/app/features/github/components/github-connect-card';
-import { getInstallationStatus } from '@/app/features/github/server/intallation';
+import { requireAuth } from '@/features/auth/actions';
+import { DashboardHeader } from '@/features/dashboard/components/dashboard-header';
+import { GithubConnectCard } from '@/features/github/components/github-connect-card';
+import { getInstallationStatus } from '@/features/github/server/intallation';
 import { Metadata } from 'next';
 import React from 'react'
 

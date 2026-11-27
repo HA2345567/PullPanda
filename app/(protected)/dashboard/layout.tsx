@@ -1,7 +1,7 @@
 
 
-import { requireAuth } from "@/app/features/auth/actions";
-import { DashboardShell } from "@/app/features/dashboard/components/dashboard-shell";
+import { requireAuth } from "@/features/auth/actions";
+import { DashboardShell } from "@/features/dashboard/components/dashboard-shell";
 
 export const instant = false;
 

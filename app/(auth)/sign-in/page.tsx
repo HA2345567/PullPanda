@@ -14,7 +14,7 @@ import {
   FieldGroup,
   FieldSet,
 } from "@/components/ui/field";
-import { GithubSignInForm } from '@/app/features/auth/components/github-sign-in-form';
+import { GithubSignInForm } from '@/features/auth/components/github-sign-in-form';
 
 
 export const instant = false;
