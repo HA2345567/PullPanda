@@ -120,17 +120,18 @@ export function buildRepoNamespace(repoFullName: string) {
 
   export async function saveRepoChunks(namespace: string, chunks: CodeChunk[]) {
     const index = getPineconeIndex();
+    const nonEmptyChunks = chunks.filter((chunk) => chunk.text.trim().length > 0);
   
-    for (let start = 0; start < chunks.length; start += UPSERT_BATCH_SIZE) {
-      const batch = chunks.slice(start, start + UPSERT_BATCH_SIZE);
+    for (let start = 0; start < nonEmptyChunks.length; start += UPSERT_BATCH_SIZE) {
+      const batch = nonEmptyChunks.slice(start, start + UPSERT_BATCH_SIZE);
   
-      const records = batch.map((chunk) => ({
-        id: chunk.id,
-        text: chunk.text,
-        filePath: chunk.filePath,
+      const documents = batch.map((chunk) => ({
+        _id: chunk.id,
+        title: chunk.filePath,
+        chunk_text: chunk.text,
       }));
   
-      await index.namespace(namespace).upsertRecords({ records });
+      await index.namespace(namespace).documents.upsert({ documents });
     }
   }
 
